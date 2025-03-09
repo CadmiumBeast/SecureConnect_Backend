@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    @apply relative flex flex-col gap-4 p-4 rounded-2xl shadow-[0_-16px_24px_0_rgba(255,255,255,0.25)_inset];
+    background-color: hsla(240, 15%, 9%, 1);
+    background-image: 
+      radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+      radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+      radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+      radial-gradient(at 0% 64%, hsla(263, 93%, 56%, 1) 0px, transparent 85%),
+      radial-gradient(at 41% 94%, hsla(284, 100%, 84%, 1) 0px, transparent 85%),
+      radial-gradient(at 100% 99%, hsla(306, 100%, 57%, 1) 0px, transparent 85%);
+  }
+
+  .card-border {
+    @apply absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%+2px)] h-[calc(100%+2px)] rounded-2xl overflow-hidden pointer-events-none;
+    background-image: linear-gradient(0deg, hsl(0, 0%, 100%) -50%, hsl(0, 0%, 40%) 100%);
+  }
+
+  .card-border::before {
+    content: "";
+    @apply absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-40 pointer-events-none;
+    background-image: linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsl(277, 95%, 60%) 40%,
+      hsl(277, 95%, 60%) 60%,
+      hsla(0, 0%, 40%, 0) 100%
+    );
+    animation: rotate 8s linear infinite;
+  }
+
+  @keyframes rotate {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+
+  .card-title {
+    @apply text-xl font-semibold text-white;
+  }
+
+  .card-paragraph {
+    @apply mt-2 w-[85%] text-sm text-gray-300;
+  }
+
+  .card-line {
+    @apply w-full h-px bg-gray-800 border-0;
+  }
+
+  .card-list {
+    @apply flex flex-col gap-3;
+  }
+
+  .card-list-item {
+    @apply flex items-center gap-3;
+  }
+
+  .check-icon {
+    @apply flex justify-center items-center w-5 h-5 rounded-full bg-purple-600;
+  }
+
+  .check-svg {
+    @apply w-3.5 h-3.5 text-black;
+  }
+
+  .list-text {
+    @apply text-sm text-white;
+  }
+
+  .gradient-button {
+    @apply w-full py-3 px-4 rounded-full text-sm text-white font-medium transition-all duration-200 cursor-pointer border-0;
+    background-image: linear-gradient(
+      0deg,
+      rgba(94, 58, 238, 1) 0%,
+      rgba(197, 107, 240, 1) 100%
+    );
+    box-shadow: inset 0 -2px 25px -4px white;
+  }
+
+  .gradient-button:hover {
+    @apply -translate-y-0.5;
+    box-shadow: inset 0 -2px 25px -2px white;
+  }
+}
